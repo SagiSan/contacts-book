@@ -21,3 +21,10 @@ jobs:
         run: npm run build --prod
       - name: Test application
         run: npm run test
+      - name: Deploy to Heroku
+        if: success()
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: contacts-book
+          heroku_email: samir.sagi@gmail.com
