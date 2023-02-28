@@ -20,7 +20,7 @@ jobs:
       - name: Build application
         run: npm run build --prod
       - name: Test application
-        run: npm run test
+        run: npm run test -- --watch=false --browsers=ChromeHeadless
       - name: Deploy to Heroku
         if: success()
         uses: akhileshns/heroku-deploy@v3.12.12
