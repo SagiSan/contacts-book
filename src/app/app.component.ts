@@ -11,6 +11,7 @@ import { addContact, Contact, ContactsState, selectContacts } from 'src/store';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'Contacts Book';
   contacts$: Observable<Contact[]>;
 
   constructor(
