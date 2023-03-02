@@ -1,0 +1,12 @@
+.contacts-list {
+  width: 460px;
+  margin: 3em auto;
+}
+.mat-mdc-row {
+  cursor: pointer;
+}
+.selected {
+  td {
+    background-color: rgba(25, 118, 210, 0.3);
+  }
+}

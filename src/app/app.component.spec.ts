@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { contactsReducer } from 'src/store';
 import { AppComponent } from './app.component';
+import { ContactsListComponent } from './contacts-list/contacts-list.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -13,7 +14,7 @@ describe('AppComponent', () => {
         MatDialogModule,
         StoreModule.forRoot({ contacts: contactsReducer }),
       ],
-      declarations: [AppComponent],
+      declarations: [AppComponent, ContactsListComponent],
       providers: [
         {
           provide: MatDialogRef,

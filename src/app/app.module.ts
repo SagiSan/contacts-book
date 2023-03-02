@@ -9,11 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { contactsReducer } from 'src/store';
+import { ContactsListComponent } from './contacts-list/contacts-list.component';
 
 @NgModule({
-  declarations: [AppComponent, ContactFormComponent],
+  declarations: [AppComponent, ContactFormComponent, ContactsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +25,7 @@ import { contactsReducer } from 'src/store';
     MatFormFieldModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    MatTableModule,
     StoreModule.forRoot({ contacts: contactsReducer }),
   ],
   providers: [

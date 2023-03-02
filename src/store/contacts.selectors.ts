@@ -7,3 +7,8 @@ export const selectContacts = createSelector(
   getContacts,
   (contacts) => contacts.contacts
 );
+
+export const selectSelectedContact = createSelector(
+  getContacts,
+  (contacts) => contacts.selectedContact
+);
