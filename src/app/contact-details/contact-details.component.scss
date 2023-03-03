@@ -1,0 +1,17 @@
+.contact-details {
+  width: 450px;
+  margin: 3em auto;
+
+  .mat-mdc-card-header {
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .mat-mdc-card-title {
+      font-size: 1.5em;
+      color: #3f51b5;
+    }
+  }
+  .label {
+    opacity: 0.54;
+  }
+}

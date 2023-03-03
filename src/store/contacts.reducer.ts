@@ -1,5 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { addContact, selectContact } from './contacts.actions';
+import {
+  addContact,
+  clearSelectedContact,
+  selectContact,
+} from './contacts.actions';
 import { ContactsState } from '../store';
 
 const initialState: ContactsState = {
@@ -18,5 +22,9 @@ export const contactsReducer = createReducer(
     selectedContact: state.contacts.find(
       (contact) => contact.id === contactId
     )!,
+  })),
+  on(clearSelectedContact, (state) => ({
+    ...state,
+    selectedContact: null,
   }))
 );

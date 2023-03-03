@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { select, Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { addContact, Contact, ContactsState, selectContacts } from 'src/store';
+import { Store } from '@ngrx/store';
+import { addContact, Contact } from 'src/store';
 import { v4 as uuid } from 'uuid';
 
 @Component({
@@ -11,18 +10,10 @@ import { v4 as uuid } from 'uuid';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Contacts Book';
-  contacts$: Observable<Contact[]> = of([]);
 
-  constructor(
-    public dialog: MatDialog,
-    private store: Store<{ contacts: ContactsState }>
-  ) {}
-
-  ngOnInit(): void {
-    this.contacts$ = this.store.pipe(select(selectContacts));
-  }
+  constructor(public dialog: MatDialog, private store: Store) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ContactFormComponent);

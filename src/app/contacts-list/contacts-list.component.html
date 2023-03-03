@@ -12,7 +12,7 @@
     <tr
       mat-row
       *matRowDef="let contact; columns: ['firstName', 'lastName']"
-      [ngClass]="{ selected: selectedID === contact.id }"
+      [ngClass]="{ selected: (selectedContact$ | async)?.id === contact.id }"
       (click)="onSelectContact(contact)"
     ></tr>
   </table>

@@ -9,3 +9,7 @@ export const selectContact = createAction(
   '[Contacts] Select Contact',
   props<{ contactId: string }>()
 );
+
+export const clearSelectedContact = createAction(
+  '[Contacts] Clear Selected Contact'
+);
