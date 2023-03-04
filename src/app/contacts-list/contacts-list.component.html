@@ -1,5 +1,10 @@
-<section class="contacts-list" *ngIf="contactsList.length">
-  <table mat-table [dataSource]="contactsList" class="mat-elevation-z8">
+<section class="contacts-list" *ngIf="contacts$ | async as contacts">
+  <table
+    *ngIf="contacts.length"
+    mat-table
+    [dataSource]="contacts"
+    class="mat-elevation-z8"
+  >
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef>First Name</th>
       <td mat-cell *matCellDef="let contact">{{ contact.firstName }}</td>

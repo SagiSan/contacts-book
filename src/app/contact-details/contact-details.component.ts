@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   clearSelectedContact,
   Contact,
@@ -12,13 +12,12 @@ import {
   selector: 'app-contact-details',
   templateUrl: './contact-details.component.html',
   styleUrls: ['./contact-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactDetailsComponent implements OnInit {
-  selectedContact$: Observable<Contact | null> = of(null);
+export class ContactDetailsComponent {
+  selectedContact$: Observable<Contact | null>;
 
-  constructor(private store: Store<{ contacts: ContactsState }>) {}
-
-  ngOnInit(): void {
+  constructor(private store: Store<{ contacts: ContactsState }>) {
     this.selectedContact$ = this.store.pipe(select(selectSelectedContact));
   }
 
